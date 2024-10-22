@@ -1,0 +1,57 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": 
+  {
+  "name": "My Custom Codespace",
+  "dockerFile": "Dockerfile",  // Optional, specify Dockerfile or base image
+  "context": "..",  // Context for Dockerfile (use ".." if it's in the root)
+
+  // Set up the base image or Dockerfile
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",  // Base image if not using Dockerfile
+
+  // Add VS Code extensions
+  "extensions": [
+    "ms-python.python",
+    "ms-azuretools.vscode-docker",
+    "esbenp.prettier-vscode"
+  ],
+
+  // Settings for VS Code
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "editor.formatOnSave": true,
+    "python.pythonPath": "/usr/local/bin/python3"
+  },
+
+  // Mount your workspace and other volumes
+  "mounts": [
+    "source=/path/to/local/folder,target=/workspace/folder,type=bind"
+  ],
+
+  // Post-create commands (install dependencies, etc.)
+  "postCreateCommand": "pip install -r requirements.txt",
+
+  // Features to be included
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  // Additional container setup
+  "runArgs": [
+    "--cap-add=SYS_PTRACE",
+    "--security-opt",
+    "seccomp=unconfined"
+  ],
+
+  // Specify any ports to be forwarded
+  "forwardPorts": [3000, 8000],
+
+  // Optional: Customize the container user
+  "remoteUser": "vscode"
+}
+
+  }
+}
