@@ -1,6 +1,3 @@
-{
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "features": 
   {
   "name": "My Custom Codespace",
   "dockerFile": "Dockerfile",  // Optional, specify Dockerfile or base image
@@ -52,5 +49,3 @@
   // Optional: Customize the container user
   "remoteUser": "vscode"
 }
-
-  }
