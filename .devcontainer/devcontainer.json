@@ -1,4 +1,5 @@
   {
+  "image": "mcr.microsoft.com/devcontainers/base:alpine-3.14",
   "name": "My Custom Codespace",
   "dockerFile": "Dockerfile",  // Optional, specify Dockerfile or base image
   "context": "..",  // Context for Dockerfile (use ".." if it's in the root)
